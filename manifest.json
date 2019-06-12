@@ -1,6 +1,32 @@
 {
-  "name": "Getting Started Example",
+  "manifest_version": 2,
+  "name": "ちょこっと上書きCSS for Chatwork",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "manifest_version": 2
+  "description": "CSSを上書きして好みの見た目に調整できるようにする拡張機能。既にCSSを理解＆自力で書ける人向け。",
+  "icons": {
+    "16": "img/icon/icon_16.png",
+    "48": "img/icon/icon_48.png",
+    "128": "img/icon/icon_128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "img/icon/icon_19.png",
+      "38": "img/icon/icon_38.png"
+    },
+    "default_title": "ちょこっと上書きCSS",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/jquery-3.4.1.min.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": ["css/style.css"],
+      "js": ["js/script.js"]
+    }
+  ]
 }
